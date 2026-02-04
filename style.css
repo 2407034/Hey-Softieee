@@ -2,42 +2,87 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 body {
+  height: 100vh;
+  background: linear-gradient(135deg, #fff3b0, #fff);
+  overflow: hidden;
+}
+
+/* floating yellow hearts background */
+body::before {
+  content: "💛 🌼 💛 🌼 💛 🌼 💛 🌼 💛 🌼";
+  position: absolute;
+  top: 100%;
+  left: 0;
   width: 100%;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #ffe5e5;
+  font-size: 24px;
+  opacity: 0.6;
+  animation: floatUp 12s linear infinite;
+}
+
+@keyframes floatUp {
+  from {
+    top: 100%;
+  }
+  to {
+    top: -100%;
+  }
 }
 
 .container {
-  display: flex;
-  flex-direction: column;
+  position: relative;
+  z-index: 2;
+  background: #ffffff;
+  width: 90%;
+  max-width: 420px;
+  margin: auto;
+  margin-top: 8vh;
+  padding: 25px;
+  border-radius: 20px;
   text-align: center;
-  align-items: center;
-  gap: 20px;
-  max-width: 500px;
-  margin: 20px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
 }
 
-.container .tenor-gif-embed {
-  max-width: 200px;
+h1 {
+  color: #f4b400;
+  margin-top: 15px;
 }
 
-.container .btn {
+p {
+  margin: 10px 0 20px;
+  color: #555;
+  font-size: 18px;
+}
+
+.btn {
   display: flex;
-  gap: 25px;
+  justify-content: space-around;
+  margin-top: 20px;
 }
 
 .btn a {
   text-decoration: none;
-  color: #111;
-  background: #fff;
-  padding: 10px 25px;
-  border-radius: 8px;
-  box-shadow: 0.5rem 1rem 3rem hsl(0, 0%, 0%, 0.3);
+  padding: 12px 26px;
+  border-radius: 30px;
+  font-size: 16px;
+  transition: 0.3s ease;
+}
+
+/* YES button */
+.btn a:first-child {
+  background: #f4b400;
+  color: white;
+}
+
+/* NO button */
+.btn a:last-child {
+  background: #eee;
+  color: #333;
+}
+
+.btn a:hover {
+  transform: scale(1.08);
 }
